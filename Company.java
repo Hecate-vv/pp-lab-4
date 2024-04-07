@@ -11,6 +11,14 @@ public class Company {
         employees[3] = new Employee("Bark Peppermint", 3000);
         employees[4] = new Worker("Natasza Tulipan", 2900, "Sekretarka");
 
+        int nonManagerEmployeeCount = 0;
+        for (Employee emp : employees) {
+            if (!(emp instanceof Manager)) {
+                nonManagerEmployeeCount++;
+            }
+        }
+        ((Manager)employees[0]).setNumberOfSubordinates(nonManagerEmployeeCount);
+        employees[0].setSalary(7500);
         System.out.println("Dane dla wszystkich pracowników:");
         for (Employee emp : employees) {
             System.out.println(emp.toString());
